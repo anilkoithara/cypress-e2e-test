@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://google.com",
+  "defaultCommandTimeout": 5000,
+  "viewportWidth": 1090,
+  "viewportHeight": 1020,
+  "videoUploadOnPasses": false
+}
