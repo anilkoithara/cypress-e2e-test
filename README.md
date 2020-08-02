@@ -1,5 +1,4 @@
-
-Basic e2e cypress test
+API and UI Test Using Cypress
 
 ## Quickstart
 

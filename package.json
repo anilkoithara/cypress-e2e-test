@@ -1,13 +1,14 @@
 {
   "name": "cypress-e2e-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple test frame using Cypress testing methods, patterns, and workflows. For a full reference and documentation, go to https://docs.cypress.io",
   "main": "index.js",
   "dependencies": {
-    "cypress": "~4.10.0"
+    "cypress": "~4.11.0"
   },
   "scripts": {
-    "open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --spec=\"cypress/tests/**/*.js\" --reporter junit --reporter-options mochaFile=results/my-test-output.xml,toConsole=true"
   },
   "repository": {
     "type": "git",
