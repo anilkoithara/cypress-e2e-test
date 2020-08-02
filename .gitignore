@@ -10,5 +10,6 @@ npm-debug.log*
 /cypress/screenshots
 /cypress/videos
 /cypress/reports
+/results
 
-cypress.env.json
+

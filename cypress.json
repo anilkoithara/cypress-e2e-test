@@ -4,7 +4,7 @@
   "defaultCommandTimeout": 8000,
   "viewportWidth": 1090,
   "viewportHeight": 1020,
-  "videoUploadOnPasses": false,
+  "videoUploadOnPasses": true,
   "reporter": "junit",
   "env": {
     "apiUrl": "http://dummy.restapiexample.com/api/v1",
