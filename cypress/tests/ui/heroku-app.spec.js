@@ -1,16 +1,17 @@
 /// <reference types="Cypress" />
+import * as homePage from './pages/home-page'
 
 context("Challenging DOM", () => {
   beforeEach(() => {
-    cy.visit("/");
-    cy.get("h2").should("contain", "Available Examples");
+    homePage.navigate("/")
+    homePage.verifyHeaderText("Available Examples")
   });
 
   it("Button ID's are changing dynamically after clicking red button", () => {
     cy.get('a[href="/challenging_dom"]')
       .should("contain", "Challenging DOM")
       .click();
-    cy.get("h3").should("contain", "Challenging DOM");
+      homePage.verifyH3HeaderText("Challenging DOM")  
     cy.location("pathname").should("eq", "/challenging_dom");
 
     // get button ids before clicking
@@ -46,23 +47,21 @@ context("Challenging DOM", () => {
   it("Verify Dynamically Loaded Page Elements", () => {
     cy.get("a").contains("Dynamic Loading").click();
     cy.location("pathname").should("eq", "/dynamic_loading");
-    cy.get("h3").should("contain", "Dynamically Loaded Page Elements");
+    homePage.verifyH3HeaderText("Dynamically Loaded Page Elements")
 
     // click example 2 link
     cy.get('a[href="/dynamic_loading/2"]')
       .should("contain", "Example 2: Element rendered after the fact")
       .click();
-    cy.get("h3").should("contain", "Dynamically Loaded Page Elements");
-    cy.get("h4").should(
-      "contain",
-      "Example 2: Element rendered after the fact"
-    );
+    homePage.verifyH3HeaderText("Dynamically Loaded Page Elements")
+    homePage.verifyH4HeaderText("Example 2: Element rendered after the fact")
+    cy.get("h4").should("contain", "Example 2: Element rendered after the fact");
     cy.location("pathname").should("eq", "/dynamic_loading/2");
 
     // click start button
     cy.get("button").contains("Start").click();
     cy.get("#loading").should("be.visible");
-    cy.get("h4").should("contain", "Hello World!");
+    homePage.verifyH4HeaderText("Hello World!")
     cy.get("#loading").should("not.be.visible");
   });
 });

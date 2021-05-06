@@ -43,8 +43,25 @@ Cypress window will open and then click on the test you want to run
 `heroku-app.spec.js` 
 - Contains two scenario - first scenario covers `Test 1:`, and second scenario covers `Test 2:`
 
+TEST 1:
+Navigate to https://the-internet.herokuapp.com/
+Click Challenging DOM
+Confirm that the blue, red, and green button ids change after the red button is clicked
+
+TEST 2:
+Navigate to https://the-internet.herokuapp.com/
+Click Dynamically Loaded Page Elements
+Click Example 2: Element rendered after the fact
+Confirm 'Hello World!' is rendered after the loading bar disappears
+
+
 `employee-update.spec.js`
 - Contains two scenario - first scenario covers `Test 3:` and second scenario cover an unhappy path.
+
+TEST 3:
+PUT to the http://dummy.restapiexample.com/ update route and verify you receive a response that
+indicates that a user was successfully updated.
+
 
 - Base URL and other configuration can viewed inside `cypress.json` file
 

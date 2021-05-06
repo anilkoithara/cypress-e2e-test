@@ -15,11 +15,11 @@ describe("Update Employee", function () {
       expect(response.body.data).to.have.length.of.at.least(1);
 
       const employeeID = response.body.data[0].id;
-      const john = {
-        employee_name: "John Doe",
-        employee_salary: 50000,
-        employee_age: 60,
-        profile_image: "/john.png",
+      const tiger = {
+        employee_name: "Tiger Nixon",
+        employee_salary: 320800,
+        employee_age: 61,
+        profile_image: "/tiger.png",
       };
 
       // update employee request
@@ -27,11 +27,11 @@ describe("Update Employee", function () {
         method: "PUT",
         url: `${url}/update/${employeeID}`,
         failOnStatusCode: false,
-        body: john,
+        body: tiger,
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body.status).to.eq("success");
-        expect(response.body.data).deep.eq(john);
+        expect(response.body.data).deep.eq(tiger);
         expect(response.body.message).to.eq(
           "Successfully! Record has been updated."
         );
@@ -40,14 +40,14 @@ describe("Update Employee", function () {
   });
 
   //unhappy scenario
-  it("Expect 400 response for invalid employee details", function () {
+  it("Expect 404 response for invalid employee details", function () {
     cy.request({
       method: "PUT",
-      url: `${url}/update/^^%%`,
+      url: `${url}/update/26/`,
       failOnStatusCode: false,
     }).then((response) => {
-      expect(response.status).to.eq(400);
-      expect(response.body).to.eq("400 Bad Request");
+      expect(response.status).to.eq(404);
+      expect(response.body.message).to.eq("Error Occured! Page Not found, contact rstapi2example@gmail.com");
     });
   });
 });

@@ -4,7 +4,7 @@
   "description": "A Simple UI and integration framework using Cypress testing methods, for cypress documentation, go to https://docs.cypress.io",
   "main": "index.js",
   "dependencies": {
-    "cypress": "~4.11.0"
+    "cypress": "7.2.0"
   },
   "scripts": {
     "cy:open": "cypress open",
